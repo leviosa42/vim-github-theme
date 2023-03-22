@@ -40,12 +40,12 @@ function! github#util#alpha(fg_hex, bg_hex, alpha) abort " {{{
 endfunction " }}}
 
 " TODO
-function! github_mini#lighten(hex, amount, hex_lightness = '#ffffff') abort " {{{
+function! github#util#lighten(hex, amount, hex_lightness = '#ffffff') abort " {{{
   return a:hex
 endfunction " }}}
 
 " TODO
-function! github_mini#darken(hex, amount, hex_darkness = '#000000') abort " {{{
+function! github#util#darken(hex, amount, hex_darkness = '#000000') abort " {{{
   return a:hex
 endfunction " }}}
 
