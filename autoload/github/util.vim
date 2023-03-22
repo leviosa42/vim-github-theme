@@ -39,6 +39,16 @@ function! github#util#alpha(fg_hex, bg_hex, alpha) abort " {{{
   return github#util#rgb2hex(bl_rgb)
 endfunction " }}}
 
+" TODO
+function! github_mini#lighten(hex, amount, hex_lightness = '#ffffff') abort " {{{
+  return a:hex
+endfunction " }}}
+
+" TODO
+function! github_mini#darken(hex, amount, hex_darkness = '#000000') abort " {{{
+  return a:hex
+endfunction " }}}
+
 " Get command to highlight.
 " (name<string>, style<dict>)
 "   => cmd<string>
