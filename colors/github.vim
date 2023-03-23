@@ -125,6 +125,11 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.Operator = {}
   let d.Keyword = {}
   let d.Exception = {}
+  let d.PreProc = { 'fg': v.prettylights.syntax.keyword }
+  let d.Include = {}
+  let d.Define = {}
+  let d.Macro = {}
+  let d.PreCondit = {}
   let d.Type = { 'fg': v.prettylights.syntax.keyword }
   let d.StorageClass = {}
   let d.Structure = {}
