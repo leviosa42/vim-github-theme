@@ -159,6 +159,8 @@ function! s:get_highlight_dict(dict) abort " {{{
   " linked to PreProc
   let d.vimOption = { 'fg': v.prettylights.syntax.constant }
   let d.vimEnvvar = { 'fg': v.prettylights.syntax.constant }
+  " linked to Type
+  let d.vimSpecial = { 'fg': v.prettylights.syntax.entity }
   " linked to Special
   let d.vimParenSep = { 'fg': v.fg.default }
   " linked to Delimiter
