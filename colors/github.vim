@@ -4,15 +4,22 @@ let s:save_cpo = &cpoptions
 
 " init
 if 1 " for debug
-  set bg=dark
+  " set bg=dark
   hi clear
   if exists("syntax_on")
     syntax reset
   endif
 endif
 
-let s:github = {}
-let s:github.theme = 'dark'
+if !exists('g:github')
+  let g:github = {}
+endif
+
+let s:default = {
+  \ 'theme': 'dark'
+  \ }
+
+let s:github = extendnew(s:default, g:github, 'force')
 
 let s:scale = github#primitives#get_scale()[s:github.theme]
 let s:vars = github#primitives#get_vars(s:scale)[s:github.theme]
