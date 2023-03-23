@@ -145,6 +145,42 @@ function! github#primitives#get_vars(scale) abort " {{{
       \ }
     \ }
   " }}}
+  " vars.dark.prettylights.syntax {{{
+  let vars.dark.prettylights = {
+    \ 'syntax': {
+      \ 'comment': a:scale.gray[3],
+      \ 'constant': a:scale.blue[2],
+      \ 'entity': a:scale.purple[2],
+      \ 'storageModifierImport': a:scale.gray[1],
+      \ 'entityTag': a:scale.green[1],
+      \ 'keyword': a:scale.red[3],
+      \ 'string': a:scale.blue[1],
+      \ 'variable': a:scale.orange[2],
+      \ 'brackethighlighterUnmatched': a:scale.red[4],
+      \ 'invalidIllegalText': a:scale.gray[0],
+      \ 'invalidIllegalBg': a:scale.red[7],
+      \ 'carriageReturnText': a:scale.gray[0],
+      \ 'carriageReturnBg': a:scale.red[6],
+      \ 'stringRegexp': a:scale.green[1],
+      \ 'markupList': a:scale.yellow[1],
+      \ 'markupHeading': a:scale.blue[5],
+      \ 'markupItalic': a:scale.gray[1],
+      \ 'markupBold': a:scale.gray[1],
+      \ 'markupDeletedText': a:scale.red[0],
+      \ 'markupDeletedBg': a:scale.red[8],
+      \ 'markupInsertedText': a:scale.green[0],
+      \ 'markupInsertedBg': a:scale.green[8],
+      \ 'markupChangedText': a:scale.orange[0],
+      \ 'markupChangedBg': a:scale.orange[8],
+      \ 'markupIgnoredText': a:scale.gray[1],
+      \ 'markupIgnoredBg': a:scale.blue[6],
+      \ 'metaDiffRange': a:scale.purple[2],
+      \ 'brackethighlighterAngle': a:scale.gray[3],
+      \ 'sublimelinterGutterMark': a:scale.gray[5],
+      \ 'constantOtherReferenceLink': a:scale.blue[1]
+      \ }
+    \ }
+  " }}}
   " vars.dark.ansi {{{
   " modified from primitives/data/vars/component_dark.ts
   let vars.dark.ansi = {
@@ -255,6 +291,42 @@ function! github#primitives#get_vars(scale) abort " {{{
       \ 'emphasis': a:scale.pink[5],
       \ 'muted': github#util#alpha(a:scale.pink[3], light_bg, 0.4),
       \ 'subtle': a:scale.pink[0]
+      \ }
+    \ }
+  " }}}
+  " var.prettylights.syntax {{{
+  let vars.light.prettylights = {
+    \ 'syntax': {
+      \ 'comment': a:scale.gray[5],
+      \ 'constant': a:scale.blue[6],
+      \ 'entity': a:scale.purple[5],
+      \ 'storageModifierImport': a:scale.gray[9],
+      \ 'entityTag': a:scale.green[6],
+      \ 'keyword': a:scale.red[5],
+      \ 'string': a:scale.blue[8],
+      \ 'variable': a:scale.orange[6],
+      \ 'brackethighlighterUnmatched': a:scale.red[7],
+      \ 'invalidIllegalText': a:scale.gray[0],
+      \ 'invalidIllegalBg': a:scale.red[7],
+      \ 'carriageReturnText': a:scale.gray[0],
+      \ 'carriageReturnBg': a:scale.red[5],
+      \ 'stringRegexp': a:scale.green[6],
+      \ 'markupList': a:scale.yellow[9],
+      \ 'markupHeading': a:scale.blue[6],
+      \ 'markupItalic': a:scale.gray[9],
+      \ 'markupBold': a:scale.gray[9],
+      \ 'markupDeletedText': a:scale.red[7],
+      \ 'markupDeletedBg': a:scale.red[0],
+      \ 'markupInsertedText': a:scale.green[6],
+      \ 'markupInsertedBg': a:scale.green[0],
+      \ 'markupChangedText': a:scale.orange[6],
+      \ 'markupChangedBg': a:scale.orange[1],
+      \ 'markupIgnoredText': a:scale.gray[1],
+      \ 'markupIgnoredBg': a:scale.blue[6],
+      \ 'metaDiffRange': a:scale.purple[5],
+      \ 'brackethighlighterAngle': a:scale.gray[6],
+      \ 'sublimelinterGutterMark': a:scale.gray[4],
+      \ 'constantOtherReferenceLink': a:scale.blue[8]
       \ }
     \ }
   " }}}
