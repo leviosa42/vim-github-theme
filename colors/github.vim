@@ -55,7 +55,7 @@ function! s:get_highlight_dict(dict) abort " {{{
   " general(:h highlight-groups) {{{
   " let d.ColorColumn = {}
   " let d.Conceal = {}
-  " let d.Cursor = {}
+  let d.Cursor = { 'gui': 'reverse', 'cterm': 'reverse' }
   " let d.lCursor = {}
   " let d.CursorIM = {}
   let d.CursorColumn = { 'link': 'CursorLine' }
