@@ -142,6 +142,23 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.Debug = {}
   " }}}
 
+  " vim {{{
+  " linked to Normal
+  let d.vimUserFunc = { 'fg': v.prettylights.syntax.entity }
+  " linked to Identifier
+  let d.vimVar = { 'fg': v.fg.default }
+  " linked to Statement
+  let d.vimSetSep = { 'fg': v.fg.default }
+  " linked to PreProc
+  let d.vimOption = { 'fg': v.prettylights.syntax.constant }
+  let d.vimEnvvar = { 'fg': v.prettylights.syntax.constant }
+  " linked to Special
+  let d.vimParenSep = { 'fg': v.fg.default }
+  " linked to Delimiter
+  let d.vimSep = { 'fg': v.fg.default }
+  " cleard
+  let d.vimFunction = { 'fg': v.prettylights.syntax.entity }
+  " }}}
   return d
 endfunction " }}}
 
