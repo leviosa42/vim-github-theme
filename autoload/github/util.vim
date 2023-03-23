@@ -29,8 +29,8 @@ endfunction " }}}
 " alpha:  0 <------> 1
 "        bg <------> fg
 function! github#util#alpha(fg_hex, bg_hex, alpha) abort " {{{
-  let fg_rgb = github_mini#hex2rgb(a:fg_hex)
-  let bg_rgb = github_mini#hex2rgb(a:bg_hex)
+  let fg_rgb = github#util#hex2rgb(a:fg_hex)
+  let bg_rgb = github#util#hex2rgb(a:bg_hex)
   let bl_rgb = {}
   for k in ['r', 'g', 'b']
     let n = fg_rgb[k] * a:alpha + bg_rgb[k] * (1 - a:alpha)
@@ -73,9 +73,9 @@ endfunction " }}}
 " Highlight based on dictionary.
 " dict<dict>
 "   => void
-function! github_mini#highlight_all(dict) abort " {{{
+function! github#util#highlight_all(dict) abort " {{{
   for [name, style] in items(a:dict)
-    execute github_mini#util#get_hi_cmd(name, style)
+    execute github#util#get_hi_cmd(name, style)
   endfor
   return
 endfunction " }}}
