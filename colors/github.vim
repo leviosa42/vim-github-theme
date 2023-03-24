@@ -30,6 +30,10 @@ let s:temp.diff = {
   \ 'delete_bg': s:vars.danger.subtle,
   \ 'text_bg': s:vars.neutral.muted
   \ }
+let s:temp.search = {
+  \ 'all': github#util#alpha(s:scale.yellow[3], s:vars.canvas.default, 0.4),
+  \ 'inc': '#ff9632'
+  \ }
 
 function! s:get_terminalansicolors_list(vars) abort " {{{
   let ansi = a:vars.ansi
@@ -79,7 +83,7 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.Folded = { 'fg': v.fg.muted, 'bg': v.done.subtle }
   let d.FoldColumn = { 'link': 'Folded' }
   let d.SignColumn = { 'fg': v.fg.muted, 'bg': v.sponsors.subtle }
-  let d.IncSearch = {}
+  let d.IncSearch = { 'fg': v.canvas.default, 'bg': t.search.inc }
   let d.LineNr = { 'fg': v.fg.subtle }
   let d.LineNrAbove = { 'link': 'LineNr' }
   let d.LineNrBelow = { 'link': 'LineNr' }
@@ -98,8 +102,8 @@ function! s:get_highlight_dict(dict) abort " {{{
   " let d.PopupNotification = {}
   let d.Question = { 'fg': v.success.fg }
   let d.QuickFixLine = { 'fg': v.accent.fg }
-  let d.Search = {}
-  let d.CurSearch = {}
+  let d.Search = { 'bg': t.search.all }
+  let d.CurSearch = { 'link': 'IncSearch' }
   let d.SpecialKey = { 'fg': v.fg.muted }
   " let d.SpellBad = {}
   " let d.SpellCap = {}
