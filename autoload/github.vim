@@ -175,7 +175,7 @@ function! github#init(user_opts) abort " {{{
 
   " variables for highlighting {{{
   let scale = github#primitives#get_scale()[opts.theme]
-  let vars = github#primitives#get_vars(scale)[opts.theme]
+  let vars = github#primitives#get_vars(scale)[opts.theme =~? 'dark' ? 'dark' : 'light']
   let temp = {}
   let temp.diff = {
     \ 'add_bg': vars.success.subtle,
