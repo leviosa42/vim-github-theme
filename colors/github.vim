@@ -23,6 +23,13 @@ let s:github = extendnew(s:default, g:github, 'force')
 
 let s:scale = github#primitives#get_scale()[s:github.theme]
 let s:vars = github#primitives#get_vars(s:scale)[s:github.theme]
+let s:temp = {}
+let s:temp.diff = {
+  \ 'add_bg': s:vars.success.subtle,
+  \ 'change_bg': s:vars.accent.subtle,
+  \ 'delete_bg': s:vars.danger.subtle,
+  \ 'text_bg': s:vars.neutral.muted
+  \ }
 
 function! s:get_terminalansicolors_list(vars) abort " {{{
   let ansi = a:vars.ansi
@@ -50,6 +57,7 @@ function! s:get_highlight_dict(dict) abort " {{{
   " abbrev
   let s = a:dict.scale
   let v = a:dict.vars
+  let t = a:dict.temp
   let d = {}
 
   " general(:h highlight-groups) {{{
@@ -61,10 +69,10 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.CursorColumn = { 'link': 'CursorLine' }
   let d.CursorLine = { 'bg': v.neutral.muted }
   let d.Dirctory = { 'fg': v.accent.fg }
-  " let d.DiffAdd = {}
-  " let d.DiffChange = {}
-  " let d.DiffDelete = {}
-  " let d.DiffText = {}
+  let d.DiffAdd = { 'bg': t.diff.add_bg }
+  let d.DiffChange = { 'bg': t.diff.change_bg }
+  let d.DiffDelete = { 'bg': t.diff.delete_bg }
+  let d.DiffText = { 'bg': t.diff.text_bg }
   let d.EndOfBuffer = { 'link': 'Normal' }
   let d.ErrorMsg = { 'fg': v.danger.fg }
   let d.VertSplit = { 'fg': v.border.default, 'bg': v.canvas.default }
@@ -171,7 +179,7 @@ function! s:get_highlight_dict(dict) abort " {{{
   return d
 endfunction " }}}
 
-let hi_dict = s:get_highlight_dict({ 'scale': (s:scale), 'vars': (s:vars) })
+let hi_dict = s:get_highlight_dict({ 'scale': (s:scale), 'vars': (s:vars), 'temp': (s:temp) })
 call github#util#highlight_all(hi_dict)
 
 let s:ansi16colors = s:get_terminalansicolors_list(s:vars)
