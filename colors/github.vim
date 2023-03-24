@@ -76,7 +76,7 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.EndOfBuffer = { 'link': 'Normal' }
   let d.ErrorMsg = { 'fg': v.danger.fg }
   let d.VertSplit = { 'fg': v.border.default, 'bg': v.canvas.default }
-  let d.Folded = { 'fg': v.fg.muted, 'bg': v.accent.subtle }
+  let d.Folded = { 'fg': v.fg.muted, 'bg': v.done.subtle }
   let d.FoldColumn = { 'link': 'Folded' }
   " let d.SignColumn = {}
   let d.IncSearch = {}
@@ -84,8 +84,8 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.LineNrAbove = { 'link': 'LineNr' }
   let d.LineNrBelow = { 'link': 'LineNr' }
   let d.CursorLineNr = { 'fg': v.fg.default, 'bg': v.neutral.muted }
-  let d.CursorLineFold = { 'fg': v.fg.muted, 'bg': v.accent.muted }
   " let d.CursorLineSign = {}
+  let d.CursorLineFold = { 'fg': v.fg.muted, 'bg': v.done.muted }
   let d.MatchParen = { 'bg': v.accent.emphasis }
   " let d.MessagwWindow = {}
   let d.ModeMsg = {}
