@@ -72,7 +72,8 @@ function! github#get_highlight_dict(dict) abort " {{{
   " let d.SpellCap = {}
   " let d.SpellLocal = {}
   " let d.SpellRare = {}
-  let d.StatusLine = { 'fg': v.fg.default, 'bg': v.canvas.overlay }
+  "let d.StatusLine = { 'fg': v.fg.default, 'bg': v.canvas.overlay }
+  let d.StatusLine = { 'fg': v.accent.fg, 'bg': v.canvas.overlay }
   let d.StatusLineNC = { 'fg': v.fg.subtle, 'bg': v.canvas.subtle }
   let d.StatusLineTerm = { 'link': 'StatusLine' }
   let d.StatusLineTermNC = { 'link': 'StatusLineNC' }
