@@ -78,14 +78,14 @@ function! s:get_highlight_dict(dict) abort " {{{
   let d.VertSplit = { 'fg': v.border.default, 'bg': v.canvas.default }
   let d.Folded = { 'fg': v.fg.muted, 'bg': v.done.subtle }
   let d.FoldColumn = { 'link': 'Folded' }
-  " let d.SignColumn = {}
+  let d.SignColumn = { 'fg': v.fg.muted, 'bg': v.sponsors.subtle }
   let d.IncSearch = {}
   let d.LineNr = { 'fg': v.fg.subtle }
   let d.LineNrAbove = { 'link': 'LineNr' }
   let d.LineNrBelow = { 'link': 'LineNr' }
   let d.CursorLineNr = { 'fg': v.fg.default, 'bg': v.neutral.muted }
-  " let d.CursorLineSign = {}
   let d.CursorLineFold = { 'fg': v.fg.muted, 'bg': v.done.muted }
+  let d.CursorLineSign = { 'fg': v.fg.muted, 'bg': v.sponsors.muted }
   let d.MatchParen = { 'bg': v.accent.emphasis }
   " let d.MessagwWindow = {}
   let d.ModeMsg = {}
