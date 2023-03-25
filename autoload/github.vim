@@ -123,6 +123,11 @@ function! github#get_highlight_dict(dict) abort " {{{
   let d.Delimiter = {}
   let d.SpecialComment = {}
   let d.Debug = {}
+  let d.Underlined = { 'fg': v.prettylights.syntax.constant, 'gui': 'underline', 'cterm': 'underline' }
+  let d.Ignore = {}
+  let d.Error = { 'fg': v.danger.fg }
+  let d.ToDo = { 'fg': v.attention.fg }
+
   " }}}
 
   " vim {{{
