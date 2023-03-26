@@ -180,8 +180,11 @@ function! github#init(user_opts) abort " {{{
   let g:colors_name = 'github_' .. opts.theme
 
   " variables for highlighting {{{
-  let scale = github#primitives#get_scale()[opts.theme]
-  let vars = github#primitives#get_vars(scale)[opts.theme =~? 'dark' ? 'dark' : 'light']
+  " let scale = github#primitives#get_scale()[opts.theme]
+  " let vars = github#primitives#get_vars(scale)[opts.theme =~? 'dark' ? 'dark' : 'light']
+  let theme = github#primitives#get_theme_all()[opts.theme]
+  let scale = theme.scale
+  let vars = theme.vars
   let temp = {}
   let temp.diff = {
     \ 'add_bg': vars.success.subtle,

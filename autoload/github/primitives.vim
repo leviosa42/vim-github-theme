@@ -68,6 +68,25 @@ function! github#primitives#get_scale() abort " {{{
   return scale
 endfunction " }}}
 
+" returns {[theme]: { scale: <dict>, vars: <dict> }}
+" it will be used in init()
+function! github#primitives#get_theme_all() abort  "{{{
+  let themes = {}
+  " TODO:
+  let s_all = github#primitives#get_scale()
+  " dark
+  let s_dark = s_all.dark
+  let themes.dark = { 'scale': s_dark, 'vars': github#primitives#get_vars(s_dark).dark }
+  " dark_dimmed
+  let s_dark_dimmed = s_all.dark_dimmed
+  let themes.dark_dimmed = { 'scale': s_dark_dimmed, 'vars': github#primitives#get_vars(s_dark_dimmed).dark }
+  " light
+  let s_light = s_all.light
+  let themes.light = { 'scale': s_light, 'vars': github#primitives#get_vars(s_light).light }
+
+  return themes
+endfunction " }}}
+
 function! github#primitives#get_vars(scale) abort " {{{
   let vars = {}
   " vars.dark {{{
