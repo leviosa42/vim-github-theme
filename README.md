@@ -8,6 +8,14 @@ GitHub's theme for Vim (unofficial).
 
 <img width="480" alt="image" src="https://user-images.githubusercontent.com/101305426/227714505-5078a021-ca58-4c88-95c1-43e5d2dfffee.png">
 
+## Features
+
+- GitHub's theme based on [primer/primitives]
+  - dark
+  - dark_dimmed
+  - light
+- `g:terminal_ansi_colors`
+   
 ## Options
 
 ```vim
@@ -23,3 +31,5 @@ let g:github = {
 
 ## Licnese
 [MIT License](./LICENSE)
+
+[primer/primitives]: https://github.com/primer/primitives
