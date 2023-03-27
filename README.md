@@ -25,7 +25,7 @@ let g:github = {
   \ }
 ```
 
-|Key|Type|Deafult|Description|
+|Key|Type|Default|Description|
 |---|---|---|---|
 |`theme`|string|`'dark'`|The flavor of this colorscheme. Available: `'dark'`, `'light'`, `'dark_dimmed'`|
 
