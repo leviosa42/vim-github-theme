@@ -135,6 +135,66 @@ function! github#primitives#get_light_colorbind() abort " {{{
   return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
 endfunction " }}}
 
+function! github#primitives#get_light_high_contrast() abort " {{{
+  let scale = g:github#primitives#scale#light_high_contrast
+  let prevars = github#primitives#vars#get_light(scale) " to get bg
+  let bg = prevars.canvas.default
+  let exceptions = {
+    \ 'fg': {
+      \ 'muted': scale.gray[9],
+    \ },
+    \ 'canvas': {
+      \ 'inset': scale.white,
+      \ 'subtle': scale.gray[1]
+    \ },
+    \ 'border': {
+      \ 'default': scale.gray[8],
+      \ 'muted': scale.gray[4],
+      \ 'subtle': github#util#alpha(scale.black, bg, 0.8)
+    \ },
+    \ 'neutral': {
+      \ 'subtle': scale.gray[1]
+    \ },
+    \ 'accent': {
+      \ 'muted': scale.blue[3]
+    \ },
+    \ 'success': {
+      \ 'emphasis': scale.green[5],
+      \ 'muted': scale.green[3]
+    \ },
+    \ 'attention': {
+      \ 'emphasis': scale.yellow[5],
+      \ 'muted': scale.yellow[3]
+    \ },
+    \ 'severe': {
+      \ 'muted': scale.orange[3]
+    \ },
+    \ 'danger': {
+      \ 'muted': scale.red[3]
+    \ },
+    \ 'done': {
+      \ 'muted': scale.purple[3]
+    \ },
+    \ 'sponsors': {
+      \ 'muted': scale.pink[3]
+    \ },
+    \ 'diffBlob': {
+      \ 'addition': {
+        \ 'fg': prevars.fg.onEmphasis,
+        \ 'wordBg': prevars.success.emphasis
+      \ },
+      \ 'deletion': {
+        \ 'fg': prevars.fg.onEmphasis,
+        \ 'wordBg': prevars.danger.emphasis
+      \ },
+      \ 'hunk': {
+        \ 'numBg': scale.blue[1]
+      \ }
+    \ }
+  \ }
+  return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
+endfunction " }}}
+
 " returns {[theme]: { scale: <dict>, vars: <dict> }}
 " it will be used in init()
 function! github#primitives#get_theme_all() abort  "{{{
@@ -155,6 +215,8 @@ function! github#primitives#get_theme_all() abort  "{{{
   let themes.light = { 'scale': s_light, 'vars': github#primitives#vars#get_light(s_light) }
   " light_colorbind
   let themes.light_colorbind = github#primitives#get_light_colorbind()
+  " light_high_contrast
+  let themes.light_high_contrast = github#primitives#get_light_high_contrast()
 
   return themes
 endfunction " }}}
