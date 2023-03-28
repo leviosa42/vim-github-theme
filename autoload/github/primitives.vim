@@ -39,6 +39,38 @@ function! github#primitives#get_dark_colorbind() abort " {{{
   return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
 endfunction " }}}
 
+function! github#primitives#get_light_colorbind() abort " {{{
+  let scale = g:github#primitives#scale#light_colorbind
+  let prevars = github#primitives#vars#get_light(scale) " to get bg
+  let bg = prevars.canvas.default
+  let exceptions = {
+    \ 'open': {
+      \ 'fg': scale.orange[5],
+      \ 'emphasis': scale.orange[4],
+      \ 'muted': github#util#alpha(scale.orange[3], bg, 0.4),
+      \ 'subtle': scale.orange[0]
+      \ },
+    \ 'closed': {
+      \ 'fg': scale.gray[5],
+      \ 'emphasis': scale.gray[5],
+      \ 'muted': github#util#alpha(scale.gray[3], bg, 0.4),
+      \ 'subtle': scale.gray[0]
+      \ },
+    \ 'diffBlob': {
+      \ 'addition': { 'numBg': prevars.success.muted,
+      \ 'lineBg': github#util#alpha(scale.green[0], bg, 0.5),
+      \ 'wordBg': prevars.success.muted
+      \ },
+    \ 'deletion': {
+      \ 'numBg': prevars.danger.muted,
+      \ 'lineBg': github#util#alpha(scale.red[0], bg, 0.5),
+      \ 'wordBg': github#util#alpha(scale.red[2], bg, 0.5)
+      \ }
+    \ }
+  \ }
+  return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
+endfunction " }}}
+
 " returns {[theme]: { scale: <dict>, vars: <dict> }}
 " it will be used in init()
 function! github#primitives#get_theme_all() abort  "{{{
@@ -55,6 +87,8 @@ function! github#primitives#get_theme_all() abort  "{{{
   " light
   let s_light = g:github#primitives#scale#light
   let themes.light = { 'scale': s_light, 'vars': github#primitives#vars#get_light(s_light) }
+  " light_colorbind
+  let themes.light_colorbind = github#primitives#get_light_colorbind()
 
   return themes
 endfunction " }}}
