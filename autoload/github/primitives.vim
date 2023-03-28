@@ -210,6 +210,9 @@ function! github#primitives#get_theme_all() abort  "{{{
   let themes.dark_colorbind = github#primitives#get_dark_colorbind()
   " dark_high_contrast
   let themes.dark_high_contrast = github#primitives#get_dark_high_contrast()
+  " dark_tritanopia
+  let s_dark_tritanopia = g:github#primitives#scale#dark_tritanopia
+  let themes.dark_tritanopia = { 'scale': s_dark_tritanopia, 'vars': github#primitives#vars#get_dark(s_dark_tritanopia) }
   " light
   let s_light = g:github#primitives#scale#light
   let themes.light = { 'scale': s_light, 'vars': github#primitives#vars#get_light(s_light) }
