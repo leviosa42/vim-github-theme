@@ -39,6 +39,70 @@ function! github#primitives#get_dark_colorbind() abort " {{{
   return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
 endfunction " }}}
 
+function! github#primitives#get_dark_high_contrast() abort " {{{
+  let scale = g:github#primitives#scale#dark_high_contrast
+  let prevars = github#primitives#vars#get_dark(scale) " to get bg
+  let bg = prevars.canvas.default
+  let exceptions = {
+    \ 'fg': {
+      \ 'muted': scale.gray[1],
+      \ 'onEmphasis': scale.gray[9]
+      \ },
+    \ 'border': {
+      \ 'default': scale.gray[5],
+      \ 'muted': scale.gray[5],
+      \ 'subtle': scale.gray[5]
+      \ },
+    \ 'neutral': {
+      \ 'emphasis': scale.gray[4],
+      \ 'emphasisPlus': scale.gray[0]
+      \ },
+    \ 'accent': {
+      \ 'muted': scale.blue[4],
+      \ },
+    \ 'success': {
+      \ 'muted': scale.green[4],
+      \ },
+    \ 'attention': {
+      \ 'muted': scale.yellow[4],
+      \ },
+    \ 'severe': {
+      \ 'muted': scale.orange[4],
+      \ },
+    \ 'danger': {
+      \ 'muted': scale.red[4],
+      \ },
+    \ 'done': {
+      \ 'muted': scale.purple[4],
+      \ },
+    \ 'sponsors': {
+      \ 'muted': scale.pink[4],
+      \ },
+    \ 'diffstat': {
+      \ 'deletionBorder': scale.red[2],
+      \ 'additionBorder': scale.green[2]
+      \ },
+    \ 'codemirror': {
+      \ 'selectionBg': github#util#alpha(scale.blue[4], bg, 0.4),
+      \ },
+    \ 'diffBlob': {
+      \ 'addition': {
+        \ 'fg': prevars.fg.onEmphasis
+        \ },
+      \ 'deletion': {
+        \ 'fg': prevars.fg.onEmphasis,
+        \ },
+      \ 'expander': {
+        \ 'icon': prevars.fg.default,
+        \ },
+      \ 'hunk': {
+        \ 'numBg': github#util#alpha(prevars.accent.muted, bg, 0.4),
+        \ },
+      \ }
+    \ }
+  return { 'scale': scale, 'vars': github#util#merge(prevars, exceptions) }
+endfunction " }}}
+
 function! github#primitives#get_light_colorbind() abort " {{{
   let scale = g:github#primitives#scale#light_colorbind
   let prevars = github#primitives#vars#get_light(scale) " to get bg
@@ -84,6 +148,8 @@ function! github#primitives#get_theme_all() abort  "{{{
   let themes.dark_dimmed = { 'scale': s_dark_dimmed, 'vars': github#primitives#vars#get_dark(s_dark_dimmed) }
   " dark_colorbind
   let themes.dark_colorbind = github#primitives#get_dark_colorbind()
+  " dark_high_contrast
+  let themes.dark_high_contrast = github#primitives#get_dark_high_contrast()
   " light
   let s_light = g:github#primitives#scale#light
   let themes.light = { 'scale': s_light, 'vars': github#primitives#vars#get_light(s_light) }
