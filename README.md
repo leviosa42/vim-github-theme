@@ -82,7 +82,7 @@ let g:github = {
 |Key|Type|Default|Description|
 |---|---|---|---|
 |`theme`|string|`'dark'`|The flavor of this colorscheme. Available: `'dark'`, `'light'`, `'dark_dimmed'`, `'dark_colorbind'`, `'light_colorbind'`, `'dark_high_contrast'`, `'light_high_contrast'`, `'dark_tritanopia'`, `'light_tritanopia'`|
-
+|`enable_termcolors`|number|`1`|Set `g:terminal_ansi_colors`.|
 ## ToDo
 
 - [x] More themes(e.g. dark_colorbind)
