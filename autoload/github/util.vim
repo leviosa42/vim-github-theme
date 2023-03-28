@@ -80,4 +80,15 @@ function! github#util#highlight_all(dict) abort " {{{
   return
 endfunction " }}}
 
+" https://vi.stackexchange.com/questions/20842/how-can-i-merge-two-dictionaries-in-vim
+function! github#util#merge(defaults, override) abort " {{{
+  let l:new = copy(a:defaults)
+  for [l:k, l:v] in items(a:override)
+    let l:new[l:k] = (type(l:v) is v:t_dict && type(get(l:new, l:k)) is v:t_dict)
+      \ ? github#util#merge(l:new[l:k], l:v)
+      \ : l:v
+  endfor
+  return l:new
+endfunction " }}}
+
 " vim: set ft=vim ts=2 sts=-1 sw=0 fdm=marker fmr={{{,}}} cms="\ %s:
