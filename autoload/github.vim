@@ -172,7 +172,8 @@ function! github#init(user_opts) abort " {{{
   " setup options {{{
   let global_opts = get(g:, 'github', {})
   let default_opts = {
-    \ 'theme': 'dark'
+    \ 'theme': 'dark',
+    \ 'enable_termcolors': 1
     \ }
   let opts = extendnew(extendnew(default_opts, global_opts, 'force'), a:user_opts, 'force')
   " }}}
@@ -204,8 +205,10 @@ function! github#init(user_opts) abort " {{{
   " }}}
 
   " ansi {{{
-  let ansi16colors = github#get_terminalansicolors_list(vars)
-  let g:terminal_ansi_colors = ansi16colors
+  if opts.enable_termcolors
+    let ansi16colors = github#get_terminalansicolors_list(vars)
+    let g:terminal_ansi_colors = ansi16colors
+  endif
   " }}}
 endfunction " }}}
 
