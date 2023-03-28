@@ -29,6 +29,12 @@ let g:github = {
 |---|---|---|---|
 |`theme`|string|`'dark'`|The flavor of this colorscheme. Available: `'dark'`, `'light'`, `'dark_dimmed'`|
 
+## ToDo
+
+- [ ] More themes(e.g. dark_colorbind)
+- [ ] Configurable highlighting
+- [ ] Export colorscheme to one file
+  
 ## Licnese
 [MIT License](./LICENSE)
 
