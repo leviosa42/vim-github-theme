@@ -220,6 +220,9 @@ function! github#primitives#get_theme_all() abort  "{{{
   let themes.light_colorbind = github#primitives#get_light_colorbind()
   " light_high_contrast
   let themes.light_high_contrast = github#primitives#get_light_high_contrast()
+  " light_tritanopia
+  let s_light_tritanopia = g:github#primitives#scale#light_tritanopia
+  let themes.light_tritanopia = { 'scale': s_light_tritanopia, 'vars': github#primitives#vars#get_light(s_light_tritanopia) }
 
   return themes
 endfunction " }}}
