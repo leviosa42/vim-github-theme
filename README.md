@@ -75,7 +75,8 @@ GitHub's theme for Vim (unofficial).
 ```vim
 " default options.
 let g:github = {
-  \ 'theme': 'dark'
+  \ 'theme': 'dark',
+  \ 'enable_termcolors': 1
   \ }
 ```
 
