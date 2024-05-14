@@ -35,7 +35,7 @@ function! github#get_highlight_dict(dict) abort " {{{
   " let d.CursorIM = {}
   let d.CursorColumn = { 'link': 'CursorLine' }
   let d.CursorLine = { 'bg': v.neutral.muted }
-  let d.Dirctory = { 'fg': v.accent.fg }
+  let d.Directory = { 'fg': v.accent.fg }
   let d.DiffAdd = { 'bg': t.diff.add_bg }
   let d.DiffChange = { 'bg': t.diff.change_bg }
   let d.DiffDelete = { 'bg': t.diff.delete_bg }
@@ -212,5 +212,5 @@ function! github#init(user_opts) abort " {{{
   " }}}
 endfunction " }}}
 
-" vim: set ft=vim ts=2 sts=-1 sw=0 fdm=marker fmr={{{,}}} cms="\ %:
+" vim: set ft=vim ts=2 sts=-1 sw=0 fdm=marker fmr={{{,}}} cms="\ %s:
 
